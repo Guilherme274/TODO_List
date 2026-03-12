@@ -1,0 +1,88 @@
+## Arquivos de código compilado
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.so
+*.dylib
+
+## Arquivos de usuário e configurações
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.usertasks
+.vs/
+.vscode/
+.idea/
+
+## Arquivos de build
+**/release/
+**/debug/
+**/publish/
+*.dbmdl
+*.testlog
+*.log
+*.tmp
+
+## Pacotes NuGet
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+
+## Arquivos de IDE
+*.swp
+*.*~
+*.sln.docstates
+.DS_Store
+Thumbs.db
+
+## Arquivos de cobertura de teste
+*.coverage
+*.coverage.xml
+*.trx
+TestResults/
+
+## Publicação
+**/Publish/
+**/PublishProfiles/
+
+## Arquivos de chave e segredos
+*.pfx
+*.p12
+appsettings.*.json
+secrets.json
+**/appsettings.*.Development.json
+
+## Arquivos de migração
+**/Migrations/*.Designer.cs
+**/Migrations/*.resx
+
+## Diretórios comuns
+**/node_modules/
+**/wwwroot/lib/
+**/wwwroot/dist/
+
+## Arquivos temporários
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+*.pid.lock
+
+## Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## Ferramentas
+_tools/
+tools/
+.nuget/
