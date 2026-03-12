@@ -1,0 +1,83 @@
+.body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.form-cadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  gap: 1rem;
+  padding: 2rem 3rem;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  box-shadow: 5px 5px 8px #888888;
+}
+
+.form-title {
+  margin: 1rem 0rem;
+  font-weight: 600;
+}
+
+.form-data:not(:has(button)) {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.form-data:has(button) {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  margin-left: 2.8rem;
+}
+
+.form-data ::deep input {
+  transition: transform 0.6s ease-in-out;
+  transform: scale(1);
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.form-data ::deep input:focus {
+  transform: scale(1.06);
+}
+
+.form-data .form-data-password {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.form-data-password button {
+  border: none;
+  background-color: transparent;
+}
+
+.form-paraLogin {
+  color:#1793eb;
+}
+
+.form-button {
+  margin-top: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  background: linear-gradient(to top, blue, rgb(59, 147, 230),blue);
+  color: white;
+  transform: scale(1);
+  transition: transform 1s ease-in-out;
+}
+
+.form-button:hover {
+    transform: scale(1.1);
+}
