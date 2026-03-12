@@ -1,0 +1,69 @@
+﻿@page "/"
+@inject NavigationManager navigation
+
+<PageTitle>Cadastro</PageTitle>
+
+<div class="body">
+    <EditForm Model="@modelUserRequest">
+        <div class="form-cadastro">
+            <h2 class="form-title">Bem vindo</h2>
+            <div class="form-data">                
+                <InputText @bind-Value="modelUserRequest.Name" placeholder="Nome"></InputText>
+            </div>
+
+            <div class="form-data">
+                <label>Data de Nascimento</label>
+                <InputDate @bind-Value="modelUserRequest.DataNascimento" @bind-Value:format="dd-MM-yyyy"></InputDate>
+            </div>
+
+            <div class="form-data">                
+                <InputText @bind-Value="modelUserRequest.Username" placeholder="Nome de Usuário"></InputText>
+            </div>
+
+            <div class="form-data">                
+                <InputText type="email" @bind-Value="modelUserRequest.Email" placeholder="Email"></InputText>
+            </div>
+
+            <div class="form-data">                
+                <div class="form-data-password">
+                    <InputText type="@(showPassword[0] ? "text" : "password")" @bind-Value="modelUserRequest.Password" placeholder="Senha"></InputText>
+                    <button type="button" @onclick="() => TogglePassword(0)">@(showPassword[0] ? "🙈" : "👁️")</button>
+                </div>
+            </div>
+
+            <div class="form-data">                
+                <div class="form-data-password">
+                    <InputText type="@(showPassword[1] ? "text" : "password")" @bind-Value="modelUserRequest.RePassword" placeholder="Confirme a Senha"></InputText>
+                    <button type="button" @onclick="() => TogglePassword(1)">@(showPassword[1] ? "🙈" : "👁️")</button>
+                </div>
+            </div>
+            <button class="form-button" type="submit">Cadastrar</button>
+            <p class="form-paraLogin">Já possui uma conta? <span><a href="#"
+                                                                    @onclick:preventDefault="true"
+                                                                    @onclick="TrocarParaLogin">Entrar</a></span></p>
+        </div>
+    </EditForm>
+</div>
+
+
+@code {
+    public bool[] showPassword = new bool [2];
+    public UserRequest modelUserRequest = new UserRequest();
+    public class UserRequest
+    {
+        public string Name { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public DateOnly DataNascimento { get; set; }
+        public string Password { get; set; }
+        public string RePassword { get; set; }
+    }
+
+    private void TrocarParaLogin(){        
+        navigation.NavigateTo("/login");
+    }
+
+    private void TogglePassword(int i){
+        showPassword[i] = !showPassword[i];
+    }
+}
