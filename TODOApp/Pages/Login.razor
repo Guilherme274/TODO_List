@@ -1,0 +1,50 @@
+@page "/login"
+
+@inject NavigationManager navigation
+
+<PageTitle>Cadastro</PageTitle>
+
+<div class="body">
+    <EditForm Model="@modelUserRequest">
+
+        <div class="form-cadastro">
+            <h2 class="form-title">Login</h2>
+
+            <div class="form-data">
+                <InputText type="email" @bind-Value="modelUserRequest.Email" placeholder="Email"></InputText>
+            </div>
+
+            <div class="form-data">
+                <div class="form-data-password">
+                    <InputText type="@(showPassword[0] ? "text" : "password")" @bind-Value="modelUserRequest.Password"
+                               placeholder="Senha"></InputText>
+                    <button type="button" @onclick="() => TogglePassword(0)">@(showPassword[0] ? "🙈" : "👁️")</button>
+                </div>
+            </div>
+
+        <button class="form-button" type="submit">Cadastrar</button>
+        <p class="form-paraLogin">Não possui uma conta? <span><a href="#" @onclick:preventDefault="true"
+                                                                    @onclick="TrocarParaCadastro">Cadastrar</a></span></p>
+        </div>
+        </EditForm>
+    </div>
+
+@code {
+    public bool[] showPassword = new bool[2];
+    public UserRequest modelUserRequest = new UserRequest();
+    public class UserRequest
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+
+    private void TrocarParaCadastro()
+    {
+        navigation.NavigateTo("/");
+    }
+
+    private void TogglePassword(int i)
+    {
+        showPassword[i] = !showPassword[i];
+    }
+}
