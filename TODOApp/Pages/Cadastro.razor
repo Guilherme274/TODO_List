@@ -8,7 +8,7 @@
         <div class="form-cadastro">
             <h2 class="form-title">Bem vindo</h2>
             <div class="form-data">                
-                <InputText @bind-Value="modelUserRequest.Name" placeholder="Nome"></InputText>
+                <InputText @bind-Value="modelUserRequest.Nome" placeholder="Nome"></InputText>
             </div>
 
             <div class="form-data">
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form-data">                
-                <InputText @bind-Value="modelUserRequest.Username" placeholder="Nome de Usuário"></InputText>
+                <InputText @bind-Value="modelUserRequest.UserName" placeholder="Nome de Usuário"></InputText>
             </div>
 
             <div class="form-data">                
@@ -26,15 +26,15 @@
 
             <div class="form-data">                
                 <div class="form-data-password">
-                    <InputText type="@(showPassword[0] ? "text" : "password")" @bind-Value="modelUserRequest.Password" placeholder="Senha"></InputText>
-                    <button type="button" @onclick="() => TogglePassword(0)">@(showPassword[0] ? "🙈" : "👁️")</button>
+                    <InputText type="@(showSenha[0] ? "text" : "password")" @bind-Value="modelUserRequest.Senha" placeholder="Senha"></InputText>
+                    <button type="button" @onclick="() => ToggleSenha(0)">@(showSenha[0] ? "🙈" : "👁️")</button>
                 </div>
             </div>
 
             <div class="form-data">                
                 <div class="form-data-password">
-                    <InputText type="@(showPassword[1] ? "text" : "password")" @bind-Value="modelUserRequest.RePassword" placeholder="Confirme a Senha"></InputText>
-                    <button type="button" @onclick="() => TogglePassword(1)">@(showPassword[1] ? "🙈" : "👁️")</button>
+                    <InputText type="@(showSenha[1] ? "text" : "password")" @bind-Value="modelUserRequest.ConfirmarSenha" placeholder="Confirme a Senha"></InputText>
+                    <button type="button" @onclick="() => ToggleSenha(1)">@(showSenha[1] ? "🙈" : "👁️")</button>
                 </div>
             </div>
             <button class="form-button" type="submit">Cadastrar</button>
@@ -47,23 +47,23 @@
 
 
 @code {
-    public bool[] showPassword = new bool [2];
+    public bool[] showSenha = new bool [2];
     public UserRequest modelUserRequest = new UserRequest();
     public class UserRequest
     {
-        public string Name { get; set; }
-        public string Username { get; set; }
+        public string Nome { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
         public DateOnly DataNascimento { get; set; }
-        public string Password { get; set; }
-        public string RePassword { get; set; }
+        public string Senha { get; set; }
+        public string ConfirmarSenha { get; set; }
     }
 
     private void TrocarParaLogin(){        
         navigation.NavigateTo("/login");
     }
 
-    private void TogglePassword(int i){
-        showPassword[i] = !showPassword[i];
+    private void ToggleSenha(int i){
+        showSenha[i] = !showSenha[i];
     }
 }

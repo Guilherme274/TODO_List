@@ -50,6 +50,7 @@
 
 .form-data ::deep input:focus {
   transform: scale(1.06);
+  outline: none;
 }
 
 .form-data .form-data-password {
