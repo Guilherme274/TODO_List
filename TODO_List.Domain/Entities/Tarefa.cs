@@ -7,7 +7,7 @@ namespace TODO_List.Domain.Entities
     {
         [Column("cd_id", TypeName = "int")]
         public int Id { get; set; }
-        [Column("ds_task")]
+        [Column("ds_tarefa", TypeName = "varchar(40)")]
         public string Descricao { get; set; }
     }    
 }
